@@ -109,7 +109,14 @@ namespace CPE200Lab1
                     hold_num2 = float.Parse(lblDisplay.Text);
                     hold_num = hold_num + hold_num2;
                     hold_num = (float)Math.Round(hold_num,8);
-                    lblDisplay.Text = hold_num.ToString();   //convert number into string
+                    if (hold_num.ToString().Length >= 9)
+                    {
+                        lblDisplay.Text = "ERROR";
+                    }
+                    else
+                    {
+                        lblDisplay.Text = hold_num.ToString();   //convert number into string
+                    }
                     op = 0;     //reset operation
                     mark = 1;   //mark end of operation
                 }
@@ -118,7 +125,14 @@ namespace CPE200Lab1
                     hold_num2 = float.Parse(lblDisplay.Text);
                     hold_num = hold_num - hold_num2;
                     hold_num = (float)Math.Round(hold_num, 8);
-                    lblDisplay.Text = hold_num.ToString();   //convert number into string
+                    if (hold_num.ToString().Length >= 9)
+                    {
+                        lblDisplay.Text = "ERROR";
+                    }
+                    else
+                    {
+                        lblDisplay.Text = hold_num.ToString();   //convert number into string
+                    }
                     op = 0;
                     mark = 1;
                 }
@@ -127,7 +141,14 @@ namespace CPE200Lab1
                     hold_num2 = float.Parse(lblDisplay.Text);
                     hold_num = hold_num * hold_num2;
                     hold_num = (float)Math.Round(hold_num, 8);
-                    lblDisplay.Text = hold_num.ToString();   //convert number into string
+                    if (hold_num.ToString().Length >= 9)
+                    {
+                        lblDisplay.Text = "ERROR";
+                    }
+                    else
+                    {
+                        lblDisplay.Text = hold_num.ToString();   //convert number into string
+                    }                   
                     op = 0;
                     mark = 1;
                 }
@@ -135,8 +156,15 @@ namespace CPE200Lab1
                 {
                     hold_num2 = float.Parse(lblDisplay.Text);
                     hold_num = hold_num / hold_num2;
-                    hold_num = (float)Math.Round(hold_num, 8);
-                    lblDisplay.Text = hold_num.ToString();   //convert number into string
+                    hold_num = (float)Math.Round(hold_num, 9);
+                    if (hold_num.ToString().Length > 9)
+                    {
+                        lblDisplay.Text = "ERROR";
+                    }
+                    else
+                    {
+                        lblDisplay.Text = hold_num.ToString();   //convert number into string
+                    }
                     op = 0;
                     mark = 1;
                 }
