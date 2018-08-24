@@ -109,7 +109,7 @@ namespace CPE200Lab1
                     hold_num2 = float.Parse(lblDisplay.Text);
                     hold_num = hold_num + hold_num2;
                     hold_num = (float)Math.Round(hold_num,8);
-                    if (hold_num.ToString().Length >= 9)
+                    if (hold_num.ToString().Length > 9)
                     {
                         lblDisplay.Text = "ERROR";
                     }
@@ -125,7 +125,7 @@ namespace CPE200Lab1
                     hold_num2 = float.Parse(lblDisplay.Text);
                     hold_num = hold_num - hold_num2;
                     hold_num = (float)Math.Round(hold_num, 8);
-                    if (hold_num.ToString().Length >= 9)
+                    if (hold_num.ToString().Length > 9)
                     {
                         lblDisplay.Text = "ERROR";
                     }
@@ -141,7 +141,7 @@ namespace CPE200Lab1
                     hold_num2 = float.Parse(lblDisplay.Text);
                     hold_num = hold_num * hold_num2;
                     hold_num = (float)Math.Round(hold_num, 8);
-                    if (hold_num.ToString().Length >= 9)
+                    if (hold_num.ToString().Length > 9)
                     {
                         lblDisplay.Text = "ERROR";
                     }
