@@ -24,13 +24,13 @@ namespace CPE200Lab1
                 {
                     rpn_stack.Push(rpn_string);
                 }
-                else if (isOperator(rpn_string))
+                if (isOperator(rpn_string))
                 {
                     if (rpn_stack.Count > 1)
                     {
-                        first_operator = rpn_stack.Pop().ToString();
                         second_operator = rpn_stack.Pop().ToString();
-                        rpn_stack.Push(calculate(rpn_string, second_operator, first_operator));
+                        first_operator = rpn_stack.Pop().ToString();                      
+                        rpn_stack.Push(calculate(rpn_string, first_operator, second_operator));
                     }
                     else
                     {
@@ -40,6 +40,11 @@ namespace CPE200Lab1
             }
             if (rpn_stack.Count == 1)
             {
+                if (arr_string[1] == "√" || arr_string[1] == "1/x")
+                {
+                    string unary_num = rpn_stack.Pop().ToString();
+                    rpn_stack.Push(unaryCalculate(arr_string[1], unary_num));
+                }
                 return decimal.Parse(rpn_stack.Peek().ToString()).ToString("G29");           
             }
             return "E";

@@ -19,6 +19,7 @@ namespace CPE200Lab1
         private bool isAfterEqual;
         private string firstOperand;
         private string operate;
+        private string op;
         private double memory;
         private CalculatorEngine engine;
 
@@ -30,9 +31,7 @@ namespace CPE200Lab1
             isAfterOperater = false;
             isAfterEqual = false;
             firstOperand = null;
-        }
-
-      
+        }     
 
         public MainForm()
         {
@@ -124,11 +123,13 @@ namespace CPE200Lab1
                 case "-":
                 case "X":
                 case "÷":
+                    op = operate;
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
                     break;
                 case "%":
                     // your code here
+                    lblDisplay.Text = engine.calculate(operate, firstOperand);
                     break;
             }
             isAllowBack = false;
@@ -141,7 +142,7 @@ namespace CPE200Lab1
                 return;
             }
             string secondOperand = lblDisplay.Text;
-            string result = engine.calculate(operate, firstOperand, secondOperand);
+            string result = engine.calculate(op, firstOperand, secondOperand);
             if (result is "E" || result.Length > 8)
             {
                 lblDisplay.Text = "Error";
