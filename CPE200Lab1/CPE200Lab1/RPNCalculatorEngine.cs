@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CPE200Lab1
 {
-    public class RPNCalculatorEngine : CalculatorEngine
+    public class RPNCalculatorEngine : NewCalculatorEngine
     {
         public new string Process(string str)
         {
@@ -35,9 +35,17 @@ namespace CPE200Lab1
                     {
                         return "E";
                     }
+                    try
+                    {
                         secondOperand = rpnStack.Pop();
                         firstOperand = rpnStack.Pop();
                         result = calculate(token, firstOperand, secondOperand);
+                    }
+                    catch
+                    {
+                        return "E";
+                    }
+                    
                     if (result is "E")
                     {
                         return result;
