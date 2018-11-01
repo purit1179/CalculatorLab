@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CPE200Lab1
 {
-    class View
+    public interface View
     {
+        void Notify(Model m);
     }
 }

@@ -8,15 +8,15 @@ namespace CPE200Lab1
 {
     public class NewCalculatorEngine
     {
-        protected bool isNumber(string str)
+        public bool isNumber(string str)
         {
             double retNum;
             return Double.TryParse(str, out retNum);
         }
 
-        protected bool isOperator(string str)
+        public bool isOperator(string ch)
         {
-            switch (str)
+            switch (ch)
             {
                 case "+":
                 case "-":
@@ -26,6 +26,7 @@ namespace CPE200Lab1
             }
             return false;
         }
+
         public string calculate(string operate, string operand, int maxOutputSize = 8)
         {
             switch (operate)
